@@ -40,6 +40,7 @@ type MyReadonly2<T, K extends keyof T = keyof T> = Omit<T, K> & {
 
 /* _____________ Test Cases _____________ */
 import { Alike, Expect } from '@type-challenges/utils';
+type Res = MyReadonly2<Todo1, 'title' | 'description'>;
 
 type cases = [
   Expect<Alike<MyReadonly2<Todo1>, Readonly<Todo1>>>,

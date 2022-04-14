@@ -25,7 +25,7 @@ type Absolute<T extends number | string | bigint> = `${T}` extends `-${infer A}`
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect } from '@type-challenges/utils';
-
+type Res = `${9_999n}`;
 type cases = [
   Expect<Equal<Absolute<0>, '0'>>,
   Expect<Equal<Absolute<-0>, '0'>>,

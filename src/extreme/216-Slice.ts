@@ -18,16 +18,17 @@
 */
 
 /* _____________ Your Code Here _____________ */
+import ToNumber from '../hard/300-StringtoNumber';
 
 type Subtract<
-  Minuend extends number | string,
+  Minuend extends number,
   Subtrahend extends number,
   MinuendArr extends unknown[] = [],
   DiffArr extends unknown[] = []
-> = Subtrahend extends 0
+> = [Subtrahend] extends [0]
   ? Minuend
-  : `${Minuend}` extends `${MinuendArr['length']}`
-  ? [...MinuendArr, ...DiffArr]['length'] extends Subtrahend
+  : [`${Minuend}`] extends [`${MinuendArr['length']}`]
+  ? [[...MinuendArr, ...DiffArr]['length']] extends [Subtrahend]
     ? DiffArr['length']
     : Subtract<Minuend, Subtrahend, MinuendArr, [...DiffArr, unknown]>
   : Subtract<Minuend, Subtrahend, [...MinuendArr, unknown], DiffArr>;
@@ -47,7 +48,9 @@ type isGreaterThan<
 type SliceIndex<
   Arr extends unknown[],
   Start extends number = 0
-> = `${Start}` extends `-${infer A}` ? Subtract<A, Arr['length']> : Start;
+> = `${Start}` extends `-${infer A}`
+  ? Subtract<ToNumber<A>, Arr['length']>
+  : Start;
 
 type SliceCore<
   Arr extends unknown[],
@@ -67,10 +70,7 @@ type Slice<
   Arr extends unknown[],
   Start extends number = 0,
   End extends number = Arr['length']
-> = Arr extends []
-  ? []
-  : //@ts-ignore
-  isGreaterThan<SliceIndex<Arr, End>, SliceIndex<Arr, Start>> extends true
+> = isGreaterThan<SliceIndex<Arr, End>, SliceIndex<Arr, Start>> extends true
   ? SliceCore<Arr, SliceIndex<Arr, Start>, SliceIndex<Arr, End>>
   : [];
 

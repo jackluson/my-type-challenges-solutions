@@ -34,3 +34,5 @@ type cases = [
   > View solutions: https://tsch.js.org/300/solutions
   > More Challenges: https://tsch.js.org
 */
+
+export default ToNumber;

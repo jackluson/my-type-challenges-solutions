@@ -18,7 +18,7 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Shift<T> = T extends [infer _A, ...infer B] ? B : never;
+export type Shift<T> = T extends [infer _A, ...infer B] ? B : never;
 
 /* _____________ Test Cases _____________ */
 import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils';

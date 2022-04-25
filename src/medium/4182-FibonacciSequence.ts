@@ -20,15 +20,7 @@
 */
 
 /* _____________ Your Code Here _____________ */
-type BuildArray<
-  Len extends number,
-  V extends unknown[] = []
-> = V['length'] extends Len ? V : BuildArray<Len, [...V, unknown]>;
-
-type Add<A extends number, B extends number> = [
-  ...BuildArray<A>,
-  ...BuildArray<B>
-]['length'];
+// import { Add } from '../utils/Add';
 
 type Pop<T extends number[]> = T extends [...infer A, infer B] ? A : never;
 

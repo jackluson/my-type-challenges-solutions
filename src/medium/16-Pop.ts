@@ -35,7 +35,7 @@ type cases = [
   Expect<Equal<Pop<[3, 2, 1]>, [3, 2]>>,
   Expect<Equal<Pop<['a', 'b', 'c', 'd']>, ['a', 'b', 'c']>>
 ];
-
+export default Pop;
 /* _____________ Further Steps _____________ */
 /*
   > Share your solutions: https://tsch.js.org/16/answer

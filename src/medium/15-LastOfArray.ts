@@ -33,7 +33,7 @@ type cases = [
   Expect<Equal<Last<[3, 2, 1]>, 1>>,
   Expect<Equal<Last<[() => 123, { a: string }]>, { a: string }>>
 ];
-
+export default Last;
 /* _____________ Further Steps _____________ */
 /*
   > Share your solutions: https://tsch.js.org/15/answer

@@ -57,6 +57,7 @@ type cases = [
   Expect<Equal<Includes<[{ readonly a: 'A' }], { a: 'A' }>, false>>
 ];
 
+export default Includes;
 /* _____________ Further Steps _____________ */
 /*
   > Share your solutions: https://tsch.js.org/898/answer

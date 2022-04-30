@@ -30,6 +30,8 @@
 /* _____________ Your Code Here _____________ */
 
 type LookUp<U, T> = U extends { type: T } ? U : never; //extends 循环  Cat | Dog
+
+export default LookUp;
 /* _____________ Test Cases _____________ */
 import { Equal, Expect } from '@type-challenges/utils';
 

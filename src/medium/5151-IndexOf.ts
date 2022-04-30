@@ -19,7 +19,11 @@
 
 /* _____________ Your Code Here _____________ */
 
-type IndexOf<T, U> = any
+import IsAny from '../utils/IsAny';
+
+type IndexOf<T, U, Arr extends unknown[]=[]> = T extends [infer F, ...infer REST] ? IsAny<U> extends true ? IsAny<F> extends true ? Arr['length'] : IndexOf<REST,U, [...Arr, F]> : U extends F ? Arr['length'] : IndexOf<REST,U, [...Arr, F]> : -1
+
+
 
 
 /* _____________ Test Cases _____________ */
